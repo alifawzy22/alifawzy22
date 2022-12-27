@@ -30,3 +30,71 @@ request.files.add(await http.MultipartFile.fromPath('profile_pic', imagePath.pat
     });
   });
 }
+
+
+
+
+
+actions: [
+        Container(
+          margin:const EdgeInsets.only(
+            //right: 16,
+          ),
+          child: PopupMenuButton(
+            //icon: Icon(Icons.arrow_circle_down_outlined,size: 40,),
+            itemBuilder: (context){
+              return [
+                    PopupMenuItem(
+                        value: 'profile',
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children:const [
+                            Text('الملف الشخصي',style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Color(0xFF005578),
+                            ),),
+                            Icon(Icons.person_rounded,color: Colors.blue,size: 30,),
+                          ],
+                        ),
+                        onTap: (){
+                          print("Profile Tapped");
+                        },
+                    ),
+                    PopupMenuItem(
+                        value: 'profile',
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children:const [
+                            Text('تواصل معنا',style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Color(0xFF005578),
+                            ),),
+                            Icon(Icons.contact_mail_rounded,color: Colors.blue,size: 30,),
+                          ],
+                        ),
+                        onTap: () {
+                          print('Contact Tapped');
+                        },
+                    ),
+
+                    
+                ];
+            },
+            onSelected:(value){
+              if(value == 0){
+                  print("My account menu is selected.");
+              }else if(value == 1){
+                  print("Settings menu is selected.");
+              }else if(value == 2){
+                  print("Logout menu is selected.");
+              }
+            }
+          ),
+        ),
+
+        ],
+      
+
+
